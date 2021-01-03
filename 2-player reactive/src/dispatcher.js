@@ -17,6 +17,7 @@ const reset_action = player => game => ({type: 'reset', player, game})
 export const server_dispatch_rx = action => {
   switch(action.type) {
     case 'new': {
+      //the ajax gives an observable 
       const start_game = ajax({ url: 'http://localhost:8080/games', method: 'POST' })
       .pipe(
         map(res => res.response),
